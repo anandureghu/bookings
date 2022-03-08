@@ -1,0 +1,43 @@
+{{template "base" .}}
+
+
+{{define "title"}}
+    About Page
+{{end}}
+
+{{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>About Page</h1>
+                <p>This is some about page text</p>
+
+                <table class="my-5">
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td>{{index .StringMap "name"}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>{{index .StringMap "email"}}</td>
+                    </tr>
+                </table>
+
+                <p class="my-2">
+                    {{if ne (index .StringMap "remote_ip") ""}}
+                        Your remote IP Address is {{index .StringMap "remote_ip"}}
+                        <br>
+                <a href="/" class="my-5">Home</a>
+
+                    {{else}}
+                        I dont know the ip address yet. Visit the <a href="/">Home Page</a> so I can set it.
+                    {{end}}
+                </p>
+            </div>
+        </div>
+            
+    </div>
+{{end}}
